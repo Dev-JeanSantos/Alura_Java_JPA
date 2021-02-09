@@ -43,9 +43,13 @@ public class Movimentacao {
 	@ManyToOne
 	private Conta conta;
 	
+	//**********************************************//
 
-	//MAPEAMENTO MUITOS PARA MUITOS//
-	//MUITAS MOVIMENTAÇÕES PARA UMA CONTA//
+	//MAPEAMENTO MUITOS PARA MUITOS//	
+	/*
+	 * MUITAS MOVIMENTAÇÕES PARA UMA CATEGORIA 
+	 * AS CATEGORIAS PODE POSSUIR MUITAS MOVIMENTAÇÕES
+	 */
 	@ManyToMany
 	private List<Categoria> categorias;
 
@@ -87,5 +91,8 @@ public class Movimentacao {
 	}
 	public List<Categoria> getCategorias() {
 		return categorias;
-	}	
+	}
+	public void setCategorias(List<Categoria> categorias) {
+		this.categorias = categorias;
+	}
 }

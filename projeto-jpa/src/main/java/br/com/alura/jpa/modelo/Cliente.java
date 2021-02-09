@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Cliente {
@@ -14,6 +15,16 @@ public class Cliente {
 	private String nome;
 	private String profissao;
 	private String endereco;
+	
+	/*
+	 * MAPEAMENTO UM PARA UM 
+	 * UM CLIENTE SÓ PODE TER UMA CONTA
+	 * E UMA CONTA PODE SER APENAS DE UM CLIENTE
+	 */	
+	@OneToOne
+	private Conta conta;
+	
+	
 	public Long getId() {
 		return id;
 	}
@@ -37,5 +48,11 @@ public class Cliente {
 	}
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
+	}
+	public Conta getConta() {
+		return conta;
+	}
+	public void setConta(Conta conta) {
+		this.conta = conta;
 	}
 }

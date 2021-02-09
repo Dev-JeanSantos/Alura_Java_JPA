@@ -23,8 +23,8 @@ public class EstadoDetached {
 		em.persist(conta);
 		em.getTransaction().commit();
 
-		// Importante entender que apos fecha a conexao finaliza o estado manager e
-		// logo o jpa destroi a referência que ele tinha do objeto.
+		// Importante entender que apos fecha a conexao finaliza o estado MANAGED e
+		// logo o JPA destroi a referência que ele tinha do objeto.
 
 		// Fechamento da conexão! AQUI O ESTADO PASSA A SER O DETACHED!!!
 		em.close();
@@ -32,7 +32,7 @@ public class EstadoDetached {
 		// Essa ação não irá ocorrer pois o estado manager foi finalizado
 		conta.setSaldo(2500.00);
 
-		// Para essa alteração acontecer será necessário mudar o estado para MANAGER
+		// Para essa alteração acontecer será necessário mudar o estado para MANAGED
 		// realizado no caso abaixo
 		EntityManager em2 = emf.createEntityManager();
 
@@ -40,7 +40,7 @@ public class EstadoDetached {
 
 		em2.getTransaction().begin();
 
-		// o merge pegará a conta detached e converte ela em manager novamente
+		// o MERGE pegará a conta DETACHED e converte ela em MANAGED novamente
 		em2.merge(conta);
 
 		em2.getTransaction().commit();

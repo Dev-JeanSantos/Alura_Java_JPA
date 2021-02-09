@@ -22,9 +22,9 @@ public static void main(String[] args) {
 		//Aqui implementado um saldo bancario depois de ser tambem implementado na entidade
 		conta.setSaldo(30000.00);
 		
-		//Importante: TODA AÇÃO NO BANCOTEM QUE ESTÁ DENTRO DE UMA TRANSAÇÃO
+		//Importante: TODA AÇÃO NO BANCO TEM QUE ESTÁ DENTRO DE UMA TRANSAÇÃO
 		
-		//Inicio da Tranação
+		//Inicio da Transação
 		em.getTransaction().begin();
 		
 		//persistencia realizada

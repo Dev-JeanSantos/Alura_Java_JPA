@@ -12,7 +12,7 @@ public class CriarConta {
 		
 		//Instancia da fabrica de conexões
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("contas");
-		//Objeto EntityManager criado para executar a persistencoa
+		//Objeto EntityManager criado para executar a persistência
 		EntityManager em = emf.createEntityManager();
 		
 		Conta conta = new Conta();
@@ -20,12 +20,12 @@ public class CriarConta {
 		conta.setConta(11310);
 		conta.setTitular("Jean Santos");
 		
-		//Importante: TODA AÇÃO NO BANCOTEM QUE ESTÁ DENTRO DE UMA TRANSAÇÃO
+		//Importante: TODA AÇÃO NO BANCO TEM QUE ESTÁ DENTRO DE UMA TRANSAÇÃO
 		
-		//Inicio da Tranação
+		//Inicio da Transação
 		em.getTransaction().begin();
 		
-		//persistencia realizada
+		//persistência realizada
 		em.persist(conta);
 		
 		//Realização da transação de uma única vez

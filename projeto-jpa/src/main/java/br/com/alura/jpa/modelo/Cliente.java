@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -22,6 +23,7 @@ public class Cliente {
 	 * E UMA CONTA PODE SER APENAS DE UM CLIENTE
 	 */	
 	@OneToOne
+	@JoinColumn(unique = true)
 	private Conta conta;
 	
 	

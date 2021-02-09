@@ -9,12 +9,19 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import br.com.alura.jpa.enums.TipoMovimentacao;
 
+
+//***********************************************//
+// NÃO ESQUECER DE DECLARAR A CLASSE NO PERSISTENCE.XML
+//***********************************************//
+
+
 //Declaração de Entidade pro JPA
 @Entity
-public class Movimentação {
+public class Movimentacao {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +35,12 @@ public class Movimentação {
 	
 	private LocalDateTime data;
 	private String descricao;
+	
+	//MAPEAMENTO MUITOS PARA UM//
+	//MUITAS MOVIMENTAÇÕES PARA UMA CONTA//
+	@ManyToOne
+	private Conta conta;
+	
 	
 	public Long getId() {
 		return Id;
@@ -59,4 +72,10 @@ public class Movimentação {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	public Conta getConta() {
+		return conta;
+	}
+	public void setConta(Conta conta) {
+		this.conta = conta;
+	}	
 }

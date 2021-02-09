@@ -1,6 +1,6 @@
 package br.com.alura.jpa.enums;
 
-//Classe do tipo ENUMERADO
+//CLASSE ENUMERADO BUSCA EVITAR ALTERAÇÕES EM UM ATRIBUTO TORNANDO ELE ESTÁTICO;
 public enum TipoMovimentacao {
-	ENTRADA, SAIDA;
+	ENTRADA, SAÍDA;
 }
